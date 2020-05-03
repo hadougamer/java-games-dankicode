@@ -1,8 +1,22 @@
 package inicio_logica_games;
 
+import java.util.ArrayList;
+
 public class Game implements Runnable {
 	private boolean isRunning;
 	private Thread thread;
+	private ArrayList<Entidade> entidades = new ArrayList<>();
+	
+	public Game() {
+		entidades.add(new Entidade());
+		entidades.add(new Entidade());
+		entidades.add(new Entidade());
+		
+		for(int i=0; i<entidades.size(); i++ ) {
+			Entidade e = entidades.get(i);
+			System.out.println("Hey");
+		}
+	}
 	
 	public static void main ( String[] args ) {
 		Game game = new Game();
@@ -17,12 +31,12 @@ public class Game implements Runnable {
 
 	// Update every loop cycle
 	public void tick() {
-		System.out.println("tick ...");
+		//System.out.println("tick ...");
 	}
 	
 	// Display things
 	public void render() {
-		System.out.println("render  ...");
+		//System.out.println("render  ...");
 	}
 	
 	@Override
