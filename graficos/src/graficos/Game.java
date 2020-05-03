@@ -3,6 +3,7 @@ package graficos;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -17,9 +18,9 @@ public class Game extends Canvas implements Runnable {
 	private boolean isRunning = true;
 	
 	private double fps 	     = 60.0;
-	private final int WIDTH  = 160;
-	private final int HEIGHT = 120;
-	private final int SCALE  = 4;
+	private final int WIDTH  = 240;
+	private final int HEIGHT = 160;
+	private final int SCALE  = 3;
 	
 	private BufferedImage image;
 	
@@ -72,14 +73,21 @@ public class Game extends Canvas implements Runnable {
 		}
 		Graphics g = image.getGraphics();
 		
+		// Draw the background retangle
 		g.setColor(new Color(255, 0, 0));
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
+		// Draw some generic retangle
 		g.setColor(Color.CYAN);
 		g.fillRect(20, 20, 80, 80);
 		
+		// Draw some circle
 		g.setColor(Color.GREEN);
 		g.fillOval(50, 50,40, 40);
+		
+		g.setFont(new Font("Arial", Font.BOLD, 10));
+		g.setColor(Color.WHITE);
+		g.drawString("Olá Mundo", 10, 10);
 		
 		g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE,null);
