@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+/home/konrad/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+470938890.index
+2051664552.index
+4080587630.index
+1379997759.index
+4196157158.index
+3743294475.index

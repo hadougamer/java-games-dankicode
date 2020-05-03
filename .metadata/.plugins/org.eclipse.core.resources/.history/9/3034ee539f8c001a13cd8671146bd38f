@@ -1,0 +1,25 @@
+package oo;
+
+public class Main {
+	public static void main(String[] args) {
+		/*
+		System.out.println("Olá, programa rodando ...");
+		
+		Player player = new Player();
+		player.iniciarJogador();
+		
+		Inimigo inimigo = new Inimigo();
+		inimigo.iniciarInimigo();
+		
+		// Without variable
+		new Player().iniciarJogador();
+		*/
+	}
+	
+	// Inner class
+	private class Main2 {
+		public void print1() {
+			System.out.println("Chamando comando")
+		}
+	}
+}

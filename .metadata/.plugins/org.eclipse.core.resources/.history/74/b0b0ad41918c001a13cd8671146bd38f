@@ -1,0 +1,10 @@
+package programa_leitura;
+
+import com.sun.tools.javac.parser.Scanner;
+
+public class Main {
+	public static void main( String[] string) {
+		//System.out.println("Programa Leitura");
+		Scanner in = new Scanner(System.in);
+	}
+}

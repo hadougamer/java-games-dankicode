@@ -1,0 +1,36 @@
+package oo;
+
+public class Main extends TesteAbstract {
+	public static void main(String[] args) {
+		/*
+		System.out.println("Olá, programa rodando ...");
+		
+		Player player = new Player();
+		player.iniciarJogador();
+		
+		Inimigo inimigo = new Inimigo();
+		inimigo.iniciarInimigo();
+		
+		// Without variable
+		new Player().iniciarJogador();
+		*/
+		new Main().instanceMain2();
+		new Main().iniciarJogo();
+		new Main().teste();
+	}
+	
+	public void teste() {
+		iniciarJogo();
+		this.iniciarJogo();
+	}
+	
+	public void instanceMain2() {
+		new Main2().print1();
+	}
+	
+	private class Main2 {
+		public void print1() {
+			System.out.println("Chamando comando ...");
+		}
+	}
+}

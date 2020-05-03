@@ -1,0 +1,9 @@
+package oo;
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Olá, programa rodando ...");
+		Player player = new Player();
+		Inimigo inimigo = new Inimigo();
+	}
+}

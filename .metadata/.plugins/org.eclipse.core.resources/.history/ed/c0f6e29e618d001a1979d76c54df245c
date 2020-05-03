@@ -1,0 +1,8 @@
+package inicio_logica_games;
+
+public class Game {
+	
+	public static void main ( String[] args ) {
+		
+	}
+}

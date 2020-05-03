@@ -1,0 +1,14 @@
+package oo;
+
+public class Main{
+	private String name = "Alexandre";
+	
+	public Main( ) {
+		System.out.println("[constructor] Class Criada");
+		System.out.println(name);
+	}
+	
+	public static void main(String[] args) {
+		new Main( this.name );
+	}
+}

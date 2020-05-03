@@ -1,0 +1,7 @@
+package oo;
+
+public class Player {
+	private void nascer() {
+		System.out.println("Nascendo...");
+	}
+}

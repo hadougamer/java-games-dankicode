@@ -1,0 +1,20 @@
+package programa_leitura;
+import java.util.Scanner;
+
+public class Main {
+	public static void main( String[] string) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Por favor, digite o seu nome:");
+		String nome = in.nextLine();
+		System.out.println("Por favor, digite o sua idade:");
+		String idade = in.nextLine();
+		System.out.println("Por favor, digite o seu peso:");
+		String peso = in.nextLine();
+		System.out.println("Por favor, digite o sua cidade:");
+		String cidade = in.nextLine();
+		System.out.println("Por favor, digite o seu estado:");
+		String estado = in.nextLine();
+		System.out.println("Por favor, digite o seu país:");
+		String pais = in.nextLine();
+	}
+}

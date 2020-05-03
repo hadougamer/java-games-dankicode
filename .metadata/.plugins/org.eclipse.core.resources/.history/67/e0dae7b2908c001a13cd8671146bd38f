@@ -1,0 +1,7 @@
+package programa_leitura;
+
+public class Main {
+	public static void main() {
+		System.out.println("Programa Leitura");
+	}
+}

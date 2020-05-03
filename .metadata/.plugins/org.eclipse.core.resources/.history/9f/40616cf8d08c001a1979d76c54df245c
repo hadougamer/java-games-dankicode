@@ -1,0 +1,8 @@
+package exemplo_oo;
+
+public class Game {
+
+	public static void main( String[] args ) {
+		
+	}
+}

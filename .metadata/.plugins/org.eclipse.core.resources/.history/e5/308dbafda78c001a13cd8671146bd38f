@@ -1,0 +1,10 @@
+package oo;
+
+public class Main{
+	public Main( ) {
+		System.out.println("[constructor] Class Criada");
+	}
+	
+	public static void main(String[] args) {
+		new Main();
+		}

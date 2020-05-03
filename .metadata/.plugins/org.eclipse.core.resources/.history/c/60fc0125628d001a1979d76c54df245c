@@ -1,0 +1,24 @@
+package inicio_logica_games;
+
+public class Game implements Runnable {
+	public boolean isRunning;
+	
+	public static void main ( String[] args ) {
+		
+	}
+
+	// Every loop cycle
+	public void tick() {
+	}
+	
+	public void render() {
+		
+	}
+	
+	@Override
+	public void run() {
+		while( isRunning ) {
+			
+		}
+	}
+}

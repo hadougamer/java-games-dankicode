@@ -1,0 +1,12 @@
+package exemplo_oo;
+
+public class Game {
+
+	public void iniciarJogo() {
+		
+	}
+	
+	public static void main( String[] args ) {
+		
+	}
+}

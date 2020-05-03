@@ -1,0 +1,15 @@
+package exemplo_oo;
+
+public class Game {
+	private Player player;
+	private Inimigo inimigo;
+	
+	public Game() {
+		player = new Player();
+		inimigo = new Inimigo();
+	}
+	
+	public static void main( String[] args ) {
+		
+	}
+}

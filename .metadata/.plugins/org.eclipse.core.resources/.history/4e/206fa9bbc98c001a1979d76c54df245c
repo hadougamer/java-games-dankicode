@@ -1,0 +1,5 @@
+package oo;
+
+public class Main extends Player {
+
+}
