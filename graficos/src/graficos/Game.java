@@ -7,14 +7,21 @@ import javax.swing.JFrame;
 public class Game extends Canvas implements Runnable {
 
 	public static JFrame frame;
+	private Thread thread;
 	
+	private boolean isRunning = true;
+	
+	private double fps 	     = 60.0;
 	private final int WIDTH  = 160;
 	private final int HEIGHT = 120;
 	private final int SCALE  = 4;
 	
 	public Game() {
-		this.setPreferredSize(new Dimension((WIDTH*SCALE), (HEIGHT*SCALE)));
-		
+		setPreferredSize(new Dimension((WIDTH*SCALE), (HEIGHT*SCALE)));
+		initFrame();
+	}
+	
+	public void initFrame() {
 		frame = new JFrame("Game #1");
 		frame.add(this); 									  // Add this canvas to frame
 		frame.setResizable(false); 							  // Disallow resize
@@ -24,14 +31,57 @@ public class Game extends Canvas implements Runnable {
 		frame.setVisible(true);
 	}
 	
+	public synchronized void start() {
+		thread = new Thread(this);
+		thread.start();
+	}
+	
+	public synchronized void stop() {
+		
+	}
+	
 	public static void main ( String[] args ) {
 		Game game = new Game();
+		game.start();
+	}
+	
+	public void tick() {
+		//System.out.println("Game cycle ...");
+	}
+	
+	public void render() {
+		//System.out.println("Game render ...");
 	}
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		//FPS
+		long lastTime = System.nanoTime();
+		double amountOfTicks = this.fps;
+		double ns = 1000000000 / amountOfTicks;
+		double delta = 0;
+		int frames = 0;
+		double timer = System.currentTimeMillis();
 		
+		while( this.isRunning ) {
+			long now = System.nanoTime();
+			delta += (now - lastTime) / ns;
+			lastTime = now;
+			
+			if ( delta >= 1 ) {
+				tick();
+				render();
+				
+				// Frame test
+				frames++;
+				delta--;
+			}
+			
+			if ((System.currentTimeMillis()-timer) >= 1000 ) {
+				System.out.println("FPS: " + frames);
+				frames = 0;
+				timer+=1000;
+			}
+		}
 	}
-
 }
