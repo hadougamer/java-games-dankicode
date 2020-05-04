@@ -1,7 +1,0 @@
-package oo;
-
-public class Player {
-	public Player() {
-		
-	}
-}

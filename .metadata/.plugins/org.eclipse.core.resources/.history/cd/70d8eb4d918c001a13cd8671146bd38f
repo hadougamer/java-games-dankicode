@@ -1,8 +1,0 @@
-package programa_leitura;
-
-public class Main {
-	public static void main( String[] string) {
-		//System.out.println("Programa Leitura");
-		Scanner in = new Scanner(System.in);
-	}
-}

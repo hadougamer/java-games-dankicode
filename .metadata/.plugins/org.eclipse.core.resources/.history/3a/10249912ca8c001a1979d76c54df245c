@@ -1,7 +1,0 @@
-package oo;
-
-public class Player {
-	public Player( int vidaInicial, int tempo) {
-		System.out.println("Player construct");
-	}
-}

@@ -1,7 +1,0 @@
-package oo;
-
-abstract class TesteAbstract {
-	
-	public void iniciarJogo() {
-	}
-}
