@@ -24,7 +24,14 @@ public class Game extends Canvas implements Runnable {
 	
 	private BufferedImage image;
 	
+	private Spritesheet sheet;
+	private BufferedImage player;
+	private int player_x;
+	
 	public Game() {
+		this.sheet = new Spritesheet("/spritesheet.png");
+		this.player = this.sheet.getSprite(130, 0, 16, 32);
+		
 		setPreferredSize(new Dimension((WIDTH*SCALE), (HEIGHT*SCALE)));
 		initFrame();
 		image = new BufferedImage(WIDTH, HEIGHT,BufferedImage.TYPE_INT_BGR);
@@ -62,6 +69,7 @@ public class Game extends Canvas implements Runnable {
 	
 	public void tick() {
 		//System.out.println("Game cycle ...");
+		this.player_x++;
 	}
 	
 	public void render() {
@@ -74,21 +82,15 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = image.getGraphics();
 		
 		// Draw the background retangle
-		g.setColor(new Color(255, 0, 0));
+		g.setColor(new Color(0, 0, 0));
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
-		// Draw some generic retangle
-		g.setColor(Color.CYAN);
-		g.fillRect(20, 20, 80, 80);
+		/* Game Render */
+		g.drawImage(this.player, player_x, 20, null);
+		g.drawImage(this.player, player_x, 45, null);
+		/****/
 		
-		// Draw some circle
-		g.setColor(Color.GREEN);
-		g.fillOval(50, 50,40, 40);
-		
-		g.setFont(new Font("Arial", Font.BOLD, 10));
-		g.setColor(Color.WHITE);
-		g.drawString("Olá Mundo", 10, 10);
-		
+		g.dispose(); // Garbage collector
 		g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE,null);
 		bs.show();
