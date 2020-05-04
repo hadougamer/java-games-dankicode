@@ -21,16 +21,26 @@ public class Game extends Canvas implements Runnable {
 	private double fps 	     = 60.0;
 	private final int WIDTH  = 240;
 	private final int HEIGHT = 160;
-	private final int SCALE  = 3;
+	private final int SCALE  = 4;
 	
 	private BufferedImage image;
 	
 	private Spritesheet sheet;
-	private BufferedImage player;
+	private BufferedImage[] player;
+	
+	private int frames = 0;
+	private int maxFrames = 10;
+	private int curAnimation = 0, maxAnimation = 4;
 	
 	public Game() {
-		this.sheet = new Spritesheet("/spritesheet.png");
-		this.player = this.sheet.getSprite(130, 0, 16, 32);
+		this.sheet = new Spritesheet("/hadouzito.png");
+		
+		// Image animation
+		this.player = new BufferedImage[4];
+		this.player[0] = sheet.getSprite(0, 0, 16, 16);
+		this.player[1] = sheet.getSprite(16, 0, 16, 16);
+		this.player[2] = sheet.getSprite(32, 0, 16, 16);
+		this.player[3] = sheet.getSprite(48, 0, 16, 16);
 		
 		setPreferredSize(new Dimension((WIDTH*SCALE), (HEIGHT*SCALE)));
 		initFrame();
@@ -69,6 +79,14 @@ public class Game extends Canvas implements Runnable {
 	
 	public void tick() {
 		//System.out.println("Game cycle ...");
+		this.frames++;
+		if ( this.frames > this.maxFrames ) {
+			this.frames = 0;
+			curAnimation++;
+			if( curAnimation >= maxAnimation ) {
+				curAnimation = 0;
+			}
+		}
 	}
 	
 	public void render() {
@@ -81,13 +99,12 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = image.getGraphics();
 		
 		// Draw the background retangle
-		g.setColor(new Color(0, 0, 0));
+		g.setColor(new Color(100, 100, 255));
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		/* Game Render */
 		Graphics2D g2 = (Graphics2D) g; // Cast to Graphics2D
-		g2.rotate(Math.toRadians(95), 45+8, 45+8);
-		g.drawImage(this.player, 90, 90, null);
+		g2.drawImage(this.player[curAnimation], 90, 90, null);
 		
 		/****/
 		
