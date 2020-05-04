@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
@@ -26,7 +27,6 @@ public class Game extends Canvas implements Runnable {
 	
 	private Spritesheet sheet;
 	private BufferedImage player;
-	private int player_x;
 	
 	public Game() {
 		this.sheet = new Spritesheet("/spritesheet.png");
@@ -69,7 +69,6 @@ public class Game extends Canvas implements Runnable {
 	
 	public void tick() {
 		//System.out.println("Game cycle ...");
-		this.player_x++;
 	}
 	
 	public void render() {
@@ -86,8 +85,10 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		/* Game Render */
-		g.drawImage(this.player, player_x, 20, null);
-		g.drawImage(this.player, player_x, 45, null);
+		Graphics2D g2 = (Graphics2D) g; // Cast to Graphics2D
+		g2.rotate(Math.toRadians(95), 45+8, 45+8);
+		g.drawImage(this.player, 90, 90, null);
+		
 		/****/
 		
 		g.dispose(); // Garbage collector
