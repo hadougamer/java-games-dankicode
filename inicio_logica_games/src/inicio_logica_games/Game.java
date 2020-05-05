@@ -13,7 +13,7 @@ public class Game implements Runnable {
 		entidades.add(new Entidade());
 		
 		for(int i=0; i<entidades.size(); i++ ) {
-			Entidade e = entidades.get(i);
+			//Entidade e = entidades.get(i);
 			System.out.println("Hey");
 		}
 	}
