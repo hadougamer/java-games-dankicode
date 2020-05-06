@@ -1,0 +1,14 @@
+- Pause / GameOver / Start Menu 
+- Artes para o jogo (Sprites)
+- Sistema de animacao p o player
+- controle do jogo pelo teclaso
+- Sistema de shooting
+- Sistema de criação de Mapa
+- Sistema de vários levels
+- Inimigos do jogo
+- Boss Battle
+- Coleta de items
+- Aumentar ataque e defesa de acordo com o item
+- Sistema de dano
+- Sistema para salvar/carregar o jogo
+- Audio e musica
