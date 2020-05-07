@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import com.hadou.entities.Entity;
 import com.hadou.entities.Player;
 import com.hadou.graphics.Spritesheet;
+import com.hadou.world.World;
 
 public class Game extends Canvas implements Runnable, KeyListener{
 
@@ -34,6 +35,9 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	
 	public ArrayList<Entity> entities;
 	public static Spritesheet spritesheet;
+	
+	public static World world;
+	
 	public Player player;
 	
 	public Game() {
@@ -42,10 +46,10 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		initFrame();
 		
 		// Initiate Objects
+		world = new World("/map.png");
 		image = new BufferedImage(WIDTH, HEIGHT,BufferedImage.TYPE_INT_BGR);
 		entities = new ArrayList<Entity>();
 		spritesheet = new Spritesheet("/spritesheet.png");
-		
 		player = new Player(0, 0, 16,16, spritesheet.getSprite(32, 0, 16, 16));
 		entities.add(player);	
 	}
