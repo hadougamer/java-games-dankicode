@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Entity {
-	private int x, y, width, height;
+	protected int x, y, width, height;
 	private BufferedImage sprite;
 	
 	public Entity( int x, int y, int width, int height, BufferedImage sprite) {
@@ -13,6 +13,14 @@ public class Entity {
 		this.width = width; 
 		this.height = height;
 		this.sprite = sprite;
+	}
+	
+	public void setX(int x) {
+		this.x =x;
+	}
+	
+	public void setY(int y) {
+		this.y =y;
 	}
 	
 	public int getX() {
