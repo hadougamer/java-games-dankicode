@@ -27,8 +27,8 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	private boolean isRunning = true;
 	
 	private double fps 	     = 60.0;
-	private final int WIDTH  = 320;
-	private final int HEIGHT = 240;
+	public static final int WIDTH  = 240  ;
+	public static final int HEIGHT = 160;
 	private final int SCALE  = 3;
 	
 	private BufferedImage image;

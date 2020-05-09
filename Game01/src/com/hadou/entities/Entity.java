@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import com.hadou.main.Game;
+import com.hadou.world.Camera;
 
 public class Entity {
 	public static BufferedImage LIFEPACK_EN = Game.spritesheet.getSprite((6*16), 0, 16, 16);
@@ -51,6 +52,6 @@ public class Entity {
 	}
 	
 	public void render( Graphics g ) {
-		g.drawImage(sprite, this.getX(), this.getY(), null);
+		g.drawImage(sprite, (this.getX() - Camera.x), (this.getY() - Camera.y), null);
 	}
 }
