@@ -6,6 +6,13 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.hadou.entities.Bullet;
+import com.hadou.entities.Enemy;
+import com.hadou.entities.Entity;
+import com.hadou.entities.Lifepack;
+import com.hadou.entities.Weapon;
+import com.hadou.main.Game;
+
 public class World {
 	
 	private Tile[] tiles;
@@ -30,18 +37,31 @@ public class World {
 			for (int xx=0; xx<WIDTH; xx++) {
 				for (int yy=0; yy<HEIGHT; yy++) {
 					int currentPixel = pixels[xx + (yy * WIDTH)];
+					// Floor
+					tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR);
 					if ( currentPixel == 0xFF000000 ) {
 						// Black = Floor
 						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR);
 					} else if ( currentPixel == 0xFFFFFFFF ) {
 						// White = wall
 						tiles[xx + (yy * WIDTH)] = new WallTile(xx*16, yy*16, Tile.TILE_WALL);
-					} else if ( currentPixel == 0xFF0026FF ) {
+					} else if ( currentPixel == 0xFF0063FF) {
 						// Blue = player
-						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR);
-					} else {
-						// Floor
-						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR);
+						System.out.println("Player");
+						Game.player.setX(xx*16);
+						Game.player.setY(yy*16);
+					} else if ( currentPixel == 0xFFFF0000 ) {
+						// Red = Enemy
+						Game.entities.add(new Enemy(xx*16, yy*16, 16, 16, Entity.ENEMY_EN));
+					} else if ( currentPixel == 0xFFcfca47 ) {
+						// Orange = Weapon
+						Game.entities.add(new Weapon(xx*16, yy*16, 16, 16, Entity.WEAPON_EN));
+					} else if ( currentPixel == 0xFFffb200 ) {
+						// Salmon = Lifepack
+						Game.entities.add(new Lifepack(xx*16, yy*16, 16, 16, Entity.LIFEPACK_EN));
+					} else if ( currentPixel == 0xFFbc93da ) {
+						// Yellow = Bullet
+						Game.entities.add(new Bullet(xx*16, yy*16, 16, 16, Entity.BULLET_EN));
 					}
 				}
 			}
