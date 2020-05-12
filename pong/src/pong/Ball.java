@@ -2,7 +2,6 @@ package pong;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.util.Random;
 
 public class Ball {
@@ -26,7 +25,7 @@ public class Ball {
 		x+=dx*speed;
 		y+=dy*speed;
 		
-		Rectangle rect1 = new Rectangle((int) x, (int) y, width, height);
+		//Rectangle rect1 = new Rectangle((int) x, (int) y, width, height);
 	}
 	
 	public void render( Graphics g) {
