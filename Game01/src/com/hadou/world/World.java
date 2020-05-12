@@ -73,8 +73,19 @@ public class World {
 	}
 	
 	public void render(Graphics g ) {
-		for (int xx=0; xx<WIDTH; xx++) {
-			for (int yy=0; yy<HEIGHT; yy++) {
+		// Initial camera position
+		int xstart = Camera.x >> 4;
+		int ystart = Camera.y >> 4;
+		// Final camera position
+		int xfinal = xstart + (Game.WIDTH >> 4);
+		int yfinal = ystart + (Game.HEIGHT >> 4);
+		
+		for (int xx=xstart; xx<=xfinal; xx++) {
+			for (int yy=ystart; yy<=yfinal; yy++) {
+				if( xx < 0 || yy <0 || xx >= WIDTH || yy >= HEIGHT )
+					// Prevent out of bounds
+					continue;
+
 				Tile tile = tiles[xx + (yy * WIDTH)];
 				tile.render(g);
 			}

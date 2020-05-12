@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import com.hadou.main.Game;
 import com.hadou.world.Camera;
+import com.hadou.world.World;
 
 public class Player extends Entity {
 
@@ -14,7 +15,7 @@ public class Player extends Entity {
 	public int right_dir = 0, left_dir = 1;
 	public int dir = right_dir;
 	
-	public int speed = 1;
+	public int speed = 2;
 	
 	private int frames = 0, maxFrames=5, index=0, maxIndex=3;
 	private boolean moved = false;
@@ -72,8 +73,8 @@ public class Player extends Entity {
 			}
 		}
 		
-		Camera.x = this.getX() - (Game.WIDTH/2);
-		Camera.y = this.getY() - (Game.HEIGHT/2);
+		Camera.x = Camera.clamp((this.getX() - (Game.WIDTH/2)), 0, ((World.WIDTH*16) - Game.WIDTH) );
+		Camera.y = Camera.clamp((this.getY() - (Game.HEIGHT/2)), 0, ((World.HEIGHT*16) - Game.HEIGHT) );
 	}
 	
 	public void render( Graphics g ) {
