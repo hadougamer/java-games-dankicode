@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JFrame;
 
@@ -40,7 +41,11 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	
 	public static Player player;
 	
+	public static Random rand;
+	
 	public Game() {
+		rand = new Random();
+		
 		addKeyListener(this);
 		setPreferredSize(new Dimension((WIDTH*SCALE), (HEIGHT*SCALE)));
 		initFrame();
@@ -128,7 +133,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		double delta = 0;
 		int frames = 0;
 		double timer = System.currentTimeMillis();
-		
+		requestFocus();
 		while( this.isRunning ) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
